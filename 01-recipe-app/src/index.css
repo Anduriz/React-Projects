@@ -5,14 +5,20 @@
   font-family: 'Montserrat', sans-serif;
 }
 
+html {
+  height: 100%;
+}
+
 body {
-  margin: 0;
+  margin: 0% 10%;
+  padding-bottom: .5rem;
+  background: rgba(228,228,228,1);
+
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  margin: 0% 10%;
 }
 
 code {

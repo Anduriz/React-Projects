@@ -1,5 +1,6 @@
  import React, { useEffect, useState } from 'react'
  import styled from 'styled-components';
+ //Motion helps whit the transitions
  import {motion} from 'framer-motion';
  import {Link, useParams} from 'react-router-dom';
 
@@ -25,12 +26,20 @@
   },[params.type])
 
   return (
-     <Grid>
+    // This div its gonna have an animated transition
+     <Grid
+      animate={{opacity: 1}}
+      initial={{opacity: 0}}
+      exit={{opacity: 0}}
+      transition={{duration: 0.5}}
+     >
        {cuisine.map((item) => {
          return(
           <Card key={item.id}>
-            <img src={item.image} alt="" />
-            <h4>{item.title}</h4>
+            <Link to={'/recipe/' + item.id}>
+              <img src={item.image} alt="" />
+              <h4>{item.title}</h4>
+            </Link>
           </Card>
          )
        })}
@@ -38,7 +47,7 @@
    )
  }
  
-const Grid = styled.div`
+const Grid = styled(motion.div)`
  display: grid;
  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
  grid-grap: 3rem;
@@ -47,6 +56,7 @@ const Card = styled.div`
  img{
   width: 100%;
   border-radius: 2rem;
+  padding: 1rem;
  }
  a{
    text-decoration: none;
@@ -56,6 +66,5 @@ const Card = styled.div`
    padding: 1rem;
  }
 `
-
 
  export default Cuisine
